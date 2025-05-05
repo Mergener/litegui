@@ -1,0 +1,1 @@
+add_subdirectory(sdl EXCLUDE_FROM_ALL)

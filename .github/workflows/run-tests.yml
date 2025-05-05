@@ -1,0 +1,33 @@
+name: Run Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Set up CMake
+        uses: lukka/get-cmake@latest
+
+      - name: Create build directory
+        run: cmake -E make_directory build
+
+      - name: Configure project
+        working-directory: ./build
+        run: cmake ..
+
+      - name: Build
+        working-directory: ./build
+        run: cmake --build .
+
+      - name: Run tests
+        working-directory: ./build
+        run: ctest --output-on-failure
