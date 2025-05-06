@@ -1,1 +1,0 @@
-create_example_executable(basic main.cpp)

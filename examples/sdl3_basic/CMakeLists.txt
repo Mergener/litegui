@@ -1,0 +1,1 @@
+create_sdl3_example(basic main.cpp)

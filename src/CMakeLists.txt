@@ -4,15 +4,13 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIGURATION>")
 
 # Configure included contexts.
 set(SOURCES litegui.cpp litegui.h types.h context.h event.h widget.h)
-
-option(CTX_SDL3 "Includes SDL3 context into the build." OFF)
-if (CTX_SDL3)
+if (INCLUDE_SDL3)
     set(SOURCES ${SOURCES} contexts/sdl3/sdl3context.cpp context.cpp)
 endif()
 
 # Create library.
 add_library(litegui STATIC ${SOURCES})
-if (CTX_SDL3)
+if (INCLUDE_SDL3)
     target_link_libraries(litegui PUBLIC SDL3::SDL3)
     target_include_directories(litegui PUBLIC ${EXT_DIRECTORY}/sdl/include)
 
