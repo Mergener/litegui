@@ -9,14 +9,15 @@ namespace litegui {
 
 class SDL3RenderContext : public RenderContext {
 public:
-    [[nodiscard]] virtual Color color() const = 0;
-    virtual void set_color(Color c) = 0;
-    [[nodiscard]] virtual Color bg_color() const = 0;
-    virtual void set_bg_color(Color c) = 0;
-    [[nodiscard]] virtual Rect size() const = 0;
+    [[nodiscard]] Color color() const override;
+    void set_color(Color c) override;
+    [[nodiscard]] virtual Rect size() const override;
 
-    virtual void draw_point(const Point& point) = 0;
-    virtual void draw_rect(const Rect& rect) = 0;
+    void draw_point(const Point& point) override;
+    void draw_rect(const Rect& rect) override;
+
+    void render_present();
+    void clear();
 
     /**
      * Constructs a SDL3 render context from a pre-initialized SDL Renderer.
@@ -30,14 +31,11 @@ public:
 
 private:
     SDL_Renderer* m_renderer;
-    Color m_bg_color {};
 };
 
-
-
-class SDL3Context : public SDL3RenderContext {
+class SDL3EventContext : public EventContext {
 public:
-    explicit SDL3Context(SDL_Renderer* renderer);
+    SDL_AppResult handle_sdl_event(const SDL_Event& ev);
 };
 
 } // litegui

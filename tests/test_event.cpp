@@ -1,14 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
-#include <iostream>
-#include <memory>
-#include <string>
 #include <vector>
-#include <functional>
-#include <mutex>
-#include <shared_mutex>
-#include <deque>
 
 #include "event.h"
 using namespace litegui;
