@@ -1,5 +1,5 @@
-#ifndef CONTEXT_H
-#define CONTEXT_H
+#ifndef LITEGUI_CONTEXT_H
+#define LITEGUI_CONTEXT_H
 
 #include "event.h"
 #include "types.h"
@@ -43,4 +43,4 @@ private:
 
 } // litegui
 
-#endif //CONTEXT_H
+#endif // LITEGUI_CONTEXT_H
