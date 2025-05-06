@@ -11,24 +11,15 @@ if (CTX_SDL3)
 endif()
 
 # Create library.
-add_library(litegui_lib STATIC ${SOURCES})
+add_library(litegui STATIC ${SOURCES})
 if (CTX_SDL3)
-    target_link_libraries(litegui_lib PUBLIC SDL3::SDL3)
-    target_include_directories(litegui_lib PUBLIC ${EXT_DIRECTORY}/sdl/include)
-    add_custom_command(TARGET litegui_lib POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        $<TARGET_FILE:SDL3::SDL3-shared>
-        $<TARGET_FILE_DIR:litegui_lib>
-    )
-endif()
+    target_link_libraries(litegui PUBLIC SDL3::SDL3)
+    target_include_directories(litegui PUBLIC ${EXT_DIRECTORY}/sdl/include)
 
-# Create executable.
-add_executable(litegui main.cpp)
-target_link_libraries(litegui PRIVATE litegui_lib)
-
-# We need to copy SDL3 libs.
-add_custom_command(TARGET litegui POST_BUILD
+    # We need to copy SDL3 libs.
+    add_custom_command(TARGET litegui POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<TARGET_FILE:SDL3::SDL3-shared>
         $<TARGET_FILE_DIR:litegui>
-)
+    )
+endif()
