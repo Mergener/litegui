@@ -9,4 +9,4 @@ function(create_test TEST_NAME TEST_SOURCE)
 endfunction()
 
 # Test list:
-# create_test(test_sum test_add.cpp)
+create_test(test_event test_event.cpp)
