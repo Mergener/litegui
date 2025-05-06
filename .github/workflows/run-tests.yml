@@ -28,7 +28,7 @@ jobs:
 
       - name: Build
         working-directory: ./build
-        run: cmake --build .
+        run: cmake --build . -DSDL_UNIX_CONSOLE_BUILD=ON
 
       - name: Run tests
         working-directory: ./build
