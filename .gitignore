@@ -11,3 +11,8 @@ build
 builds
 bin
 obj
+
+# IDE files
+.idea
+.vscode
+.vs
