@@ -24,11 +24,11 @@ jobs:
 
       - name: Configure project
         working-directory: ./build
-        run: cmake ..
+        run: cmake .. -DSDL_UNIX_CONSOLE_BUILD=ON
 
       - name: Build
         working-directory: ./build
-        run: cmake --build . -DSDL_UNIX_CONSOLE_BUILD=ON
+        run: cmake --build .
 
       - name: Run tests
         working-directory: ./build
