@@ -1,8 +1,6 @@
 #ifndef LITEGUI_WIDGET_H
 #define LITEGUI_WIDGET_H
 
-#include <SDL3/SDL.h>
-
 namespace litegui {
 
 struct WidgetContext {
